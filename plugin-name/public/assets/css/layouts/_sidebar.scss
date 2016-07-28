@@ -1,0 +1,193 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/css/nanoscroller.min.css");
+
+@mixin border-radius( $radius ) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin user-select($property) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  font-size: 12px;
+}
+
+ul, ol, li, dl, dt, dd {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  background: #23232C;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  max-width: 250px;
+  z-index: 900;
+  @include user-select('none');
+
+  .brand {
+    text-align: center;
+    margin: 18px auto;
+    .logo {
+      display: inline-block;
+      vertical-align: top;
+      background: url(http://cdn-files.deezer.com/images/compass/sprites/deezer/common/logos-sf988535bc9.png);
+      height: 24px;
+      width: 117px;
+    }
+  }
+
+  .menus {
+    width: 100%;
+    position: absolute;
+    top: 98px;
+    bottom: 310px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  .navbar-form {
+    .form-group {
+      position: relative;
+
+      .form-control {
+        border: none;
+        background: #D1D1D7;
+        font-size: 12px;
+        position: relative;
+      }
+
+      &:after {
+        content: "\f002";
+        font-family: "FontAwesome";
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .nav {
+    li a {
+      padding-left: 20px;
+      color: #C2C2CA;
+      font-size: 13px;
+      border-left: 2px solid transparent;
+    }
+    li a:hover,
+    li a:focus,
+    li.active a {
+      background: #1F1F29;
+      color: #fff;
+    }
+    li.active a {
+      background: #1C1C25;
+      border-left-color: #007FEB;
+    }
+  }
+
+  .nav#main-nav {
+    li a {
+      text-transform: uppercase;
+    }
+  }
+
+  .nav#user-nav {
+    li a {
+      i.fa {
+        font-size: 12px;
+        margin-right: 5px;
+      }
+      &.btn {
+        width: 80%;
+        margin: 0 auto;
+        background: #007FEB;
+        color: #fff;
+        border: none;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bolder;
+      }
+    }
+  }
+  hr {
+    border-color: #32323D;
+    width: 90%;
+    margin: 20px auto;
+    margin-bottom: 0;
+  }
+
+  .player {
+    height: 220px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .player-cover {
+      height: 140px;
+      position: relative;
+
+      .play-track {
+        top: 12px;
+        position: absolute;
+        right: 0;
+        left: 0;
+        padding: 0 20px;
+        z-index: 20;
+      }
+    }
+
+    .player-controls {
+      height: 80px;
+      background-color: #23232C;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      padding: 10px 20px 0;
+      text-align: center;
+      transition-property: background-color;
+      -webkit-transition-property: background-color;
+      transition-duration: .15s;
+
+      .controls {
+        li {
+          display: inline-block;
+          vertical-align: top;
+        }
+        .control {
+          background: none;
+          border: none;
+          shadow: none;
+          color: #C2C2CA;
+          height: 40px;
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .nano {
+    bottom: 220px;
+    top: 98px;
+  }
+}
